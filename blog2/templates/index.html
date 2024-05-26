@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		h1{
+			transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			text-align: center;
+		}
+		body{
+			background-color: black;
+			color: red;
+		}
+		.title{
+			font-size:20px;
+			font-style: italic;
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color:white;
+        }
+		.date{
+			font-size:15px;
+			font-family: Arial, Helvetica, sans-serif;
+            color:white;
+		}
+		.body{
+			font-size:15px;
+			font-style: italic;
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+		}
+        a{
+            text-decoration:None;
+            color:red;
+        }
+	</style>
+</head>
+<body>
+	<h1>
+		My blogs
+	</h1>
+    <ol>
+	{% for item in items %}
+        <a href="posts/{{item.id}}">
+            <li>
+                <ul>
+                <li>
+                    <div class="title">
+                    {{item.title}}
+                    </div>
+                </li>
+                <li>
+                    <div class="date">
+                    {{item.date}}
+                    </div>
+                </li>
+                <li>
+                    <div class="body">
+                    {{item.body|truncatechars:100}}
+                    </div>
+                </li>
+                </ul>
+            </li>
+            <br>
+        </a>
+    {% endfor %}
+    </ol>
+</body>
+</html>
